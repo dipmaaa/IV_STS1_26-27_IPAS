@@ -1,0 +1,1764 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STS Gasal IPAS Kelas IV</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef2f7;
+    color:#172033;
+}
+
+.container{
+    max-width:950px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+/* ================= KOP ================= */
+
+.header{
+    background:#102a43;
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:0 6px 20px rgba(0,0,0,.12);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    padding:18px 25px;
+    border-bottom:4px solid #d4af37;
+}
+
+.logo-img{
+    width:72px;
+    height:72px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.header-title{
+    text-align:center;
+    flex:1;
+    color:white;
+}
+
+.header-title h1{
+    margin:0;
+    font-size:22px;
+    letter-spacing:.5px;
+}
+
+.header-title h2{
+    margin:6px 0;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.header-title p{
+    margin:0;
+    font-size:14px;
+    color:#e8edf3;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 4px 18px rgba(0,0,0,.07);
+}
+
+.welcome{
+    text-align:center;
+}
+
+.welcome h2{
+    margin-top:0;
+    color:#102a43;
+}
+
+#welcomeName{
+    color:#1769aa;
+}
+
+/* ================= INFO ================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:20px 0;
+}
+
+.info-box{
+    background:#f3f6fa;
+    border:1px solid #e1e7ee;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+}
+
+.info-box strong{
+    display:block;
+    font-size:24px;
+    color:#102a43;
+}
+
+.info-box span{
+    font-size:13px;
+    color:#666;
+}
+
+/* ================= FORM ================= */
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #ccd5df;
+    border-radius:9px;
+    font-size:15px;
+    font-family:inherit;
+}
+
+input[readonly],
+select:disabled{
+    background:#f1f3f5;
+    color:#333;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    border:none;
+    padding:13px 25px;
+    border-radius:9px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#102a43;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#0b2033;
+}
+
+.btn-success{
+    background:#18794e;
+    color:white;
+}
+
+.btn-success:hover{
+    background:#12613e;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-area{
+    margin-bottom:20px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.progress-bar{
+    width:100%;
+    height:9px;
+    background:#dce3ea;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#102a43;
+    transition:.3s;
+}
+
+/* ================= SOAL ================= */
+
+.question{
+    background:#f8fafc;
+    border:1px solid #e0e6ed;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:17px;
+}
+
+.question-title{
+    font-weight:bold;
+    margin-bottom:13px;
+    line-height:1.6;
+}
+
+.option{
+    display:block;
+    padding:9px 10px;
+    margin:5px 0;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#edf2f7;
+}
+
+.option input{
+    width:auto;
+    margin-right:8px;
+}
+
+/* ================= HASIL ================= */
+
+.result-box{
+    text-align:center;
+}
+
+.score{
+    font-size:55px;
+    font-weight:bold;
+    color:#102a43;
+    margin:10px 0;
+}
+
+.result-detail{
+    background:#f4f7fa;
+    border-radius:12px;
+    padding:18px;
+    margin-top:20px;
+}
+
+.result-detail p{
+    margin:8px 0;
+}
+
+.review-item{
+    border:1px solid #dce3ea;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:12px;
+}
+
+.correct{
+    color:#18794e;
+    font-weight:bold;
+}
+
+.wrong{
+    color:#c0392b;
+    font-weight:bold;
+}
+
+/* ================= PAGE ================= */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .container{
+        margin-top:10px;
+    }
+
+    .brand{
+        gap:8px;
+        padding:15px 10px;
+    }
+
+    .logo-img{
+        width:55px;
+        height:55px;
+    }
+
+    .header-title h1{
+        font-size:15px;
+    }
+
+    .header-title h2{
+        font-size:13px;
+    }
+
+    .header-title p{
+        font-size:10px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= KOP ================= -->
+
+<div class="header">
+
+    <div class="brand">
+
+        <img
+            src="logo-lamongan.png"
+            class="logo-img"
+            alt="Logo Lamongan"
+        >
+
+        <div class="header-title">
+
+            <h1>SUMATIF TENGAH SEMESTER GASAL</h1>
+
+            <h2>SDN 1 SENDANGREJO</h2>
+
+            <p>TAHUN PELAJARAN 2026/2027</p>
+
+        </div>
+
+        <img
+            src="logo-sekolah.png"
+            class="logo-img"
+            alt="Logo SDN 1 Sendangrejo"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- HALAMAN AWAL -->
+<!-- ===================================================== -->
+
+<div id="startPage" class="page active">
+
+    <div class="card welcome">
+
+        <h2>
+            Selamat Datang,
+            <span id="welcomeName">Peserta Didik!</span>
+        </h2>
+
+        <p>
+            Silakan pilih nomor absen untuk melanjutkan ujian.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="info-grid">
+
+            <div class="info-box">
+                <strong>15</strong>
+                <span>Pilihan Ganda</span>
+            </div>
+
+            <div class="info-box">
+                <strong>10</strong>
+                <span>Isian Singkat</span>
+            </div>
+
+            <div class="info-box">
+                <strong>5</strong>
+                <span>Uraian</span>
+            </div>
+
+        </div>
+
+
+        <!-- NO ABSEN -->
+
+        <div class="form-group">
+
+            <label for="absen">
+                No. Absen
+            </label>
+
+            <select id="absen" onchange="pilihAbsen()">
+
+                <option value="">
+                    -- Pilih No. Absen --
+                </option>
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- NAMA OTOMATIS -->
+
+        <div class="form-group">
+
+            <label for="nama">
+                Nama Lengkap
+            </label>
+
+            <input
+                type="text"
+                id="nama"
+                readonly
+                placeholder="Nama akan muncul otomatis"
+            >
+
+        </div>
+
+
+        <!-- KELAS -->
+
+        <div class="form-group">
+
+            <label for="kelas">
+                Kelas / Fase
+            </label>
+
+            <select id="kelas" disabled>
+
+                <option value="IV / B">
+                    IV / B
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- MAPEL -->
+
+        <div class="form-group">
+
+            <label for="mapel">
+                Mata Pelajaran
+            </label>
+
+            <select id="mapel" disabled>
+
+                <option value="IPAS">
+                    IPAS
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div style="text-align:center;margin-top:25px;">
+
+            <button
+                class="btn btn-primary"
+                onclick="mulaiUjian()"
+            >
+                MULAI UJIAN
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- HALAMAN UJIAN -->
+<!-- ===================================================== -->
+
+<div id="examPage" class="page">
+
+<div class="card">
+
+<div class="progress-area">
+
+    <div class="progress-info">
+
+        <span id="progressText">
+            0 / 30 soal terjawab
+        </span>
+
+        <span>
+            Progress
+        </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            id="progressFill"
+            class="progress-fill"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<form id="examForm">
+
+
+<!-- ===================================================== -->
+<!-- PILIHAN GANDA -->
+<!-- ===================================================== -->
+
+<h2>Pilihan Ganda</h2>
+
+
+<div class="question">
+<div class="question-title">
+1. Saat listrik padam, Rani menyalakan lilin. Lilin menghasilkan cahaya dan membuat udara di sekitarnya terasa hangat. Bentuk energi yang dihasilkan lilin adalah ....
+</div>
+<label class="option"><input type="radio" name="q1" value="A"> A. energi cahaya dan panas</label>
+<label class="option"><input type="radio" name="q1" value="B"> B. energi bunyi dan gerak</label>
+<label class="option"><input type="radio" name="q1" value="C"> C. energi listrik dan bunyi</label>
+<label class="option"><input type="radio" name="q1" value="D"> D. energi gerak dan listrik</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+2. Perhatikan sumber energi berikut!<br>
+(1) Matahari<br>
+(2) Angin<br>
+(3) Batu bara<br>
+(4) Makanan<br>
+Semua yang termasuk sumber energi ditunjukkan oleh ....
+</div>
+<label class="option"><input type="radio" name="q2" value="A"> A. (1), (2), dan (3)</label>
+<label class="option"><input type="radio" name="q2" value="B"> B. (1), (2), dan (4)</label>
+<label class="option"><input type="radio" name="q2" value="C"> C. (2), (3), dan (4)</label>
+<label class="option"><input type="radio" name="q2" value="D"> D. (1), (2), (3), dan (4)</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+3. Ketika Ayah menggunakan kipas angin, baling-baling kipas berputar. Perubahan energi yang terjadi adalah ....
+</div>
+<label class="option"><input type="radio" name="q3" value="A"> A. listrik menjadi gerak</label>
+<label class="option"><input type="radio" name="q3" value="B"> B. gerak menjadi listrik</label>
+<label class="option"><input type="radio" name="q3" value="C"> C. panas menjadi cahaya</label>
+<label class="option"><input type="radio" name="q3" value="D"> D. cahaya menjadi bunyi</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+4. Sinta menjemur pakaian di bawah sinar matahari. Setelah beberapa jam, pakaian menjadi kering. Hal ini menunjukkan bahwa energi panas matahari dapat dimanfaatkan untuk ....
+</div>
+<label class="option"><input type="radio" name="q4" value="A"> A. mengeringkan benda</label>
+<label class="option"><input type="radio" name="q4" value="B"> B. menghasilkan bunyi</label>
+<label class="option"><input type="radio" name="q4" value="C"> C. menggerakkan benda</label>
+<label class="option"><input type="radio" name="q4" value="D"> D. menarik benda</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+5. Tanaman di halaman sekolah diletakkan di tempat yang mendapat cukup sinar matahari. Tanaman tersebut dapat membuat makanannya sendiri melalui proses ....
+</div>
+<label class="option"><input type="radio" name="q5" value="A"> A. penguapan</label>
+<label class="option"><input type="radio" name="q5" value="B"> B. fotosintesis</label>
+<label class="option"><input type="radio" name="q5" value="C"> C. pernapasan</label>
+<label class="option"><input type="radio" name="q5" value="D"> D. pembakaran</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+6. Dalam fotosintesis, tumbuhan memerlukan air dan karbon dioksida dengan bantuan ....
+</div>
+<label class="option"><input type="radio" name="q6" value="A"> A. angin</label>
+<label class="option"><input type="radio" name="q6" value="B"> B. tanah</label>
+<label class="option"><input type="radio" name="q6" value="C"> C. cahaya matahari</label>
+<label class="option"><input type="radio" name="q6" value="D"> D. gaya gravitasi</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+7. Riko melihat tanaman di halaman sekolah tumbuh dengan baik. Tanaman tersebut melakukan fotosintesis. Salah satu hasil fotosintesis yang bermanfaat bagi manusia adalah ....
+</div>
+<label class="option"><input type="radio" name="q7" value="A"> A. oksigen untuk bernapas</label>
+<label class="option"><input type="radio" name="q7" value="B"> B. tanah untuk bercocok tanam</label>
+<label class="option"><input type="radio" name="q7" value="C"> C. air untuk minum</label>
+<label class="option"><input type="radio" name="q7" value="D"> D. cahaya untuk melihat</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+8. Dika mendorong meja hingga meja berpindah tempat. Berdasarkan kejadian tersebut, gaya dapat diartikan sebagai ....
+</div>
+<label class="option"><input type="radio" name="q8" value="A"> A. sesuatu yang dapat mengubah suhu benda</label>
+<label class="option"><input type="radio" name="q8" value="B"> B. tarikan atau dorongan yang diberikan pada benda</label>
+<label class="option"><input type="radio" name="q8" value="C"> C. sesuatu yang membuat benda menjadi berat</label>
+<label class="option"><input type="radio" name="q8" value="D"> D. tenaga yang hanya berasal dari listrik</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+9. Rara menarik pintu agar terbuka, sedangkan Beni mendorong meja agar bergeser. Pernyataan yang tepat adalah ....
+</div>
+<label class="option"><input type="radio" name="q9" value="A"> A. Rara melakukan tarikan dan Beni melakukan dorongan</label>
+<label class="option"><input type="radio" name="q9" value="B"> B. Rara melakukan dorongan dan Beni melakukan tarikan</label>
+<label class="option"><input type="radio" name="q9" value="C"> C. keduanya melakukan tarikan</label>
+<label class="option"><input type="radio" name="q9" value="D"> D. keduanya melakukan dorongan</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+10. Edo menendang bola hingga bola bergerak menjauh. Gaya yang digunakan Edo terutama berasal dari ....
+</div>
+<label class="option"><input type="radio" name="q10" value="A"> A. magnet</label>
+<label class="option"><input type="radio" name="q10" value="B"> B. otot</label>
+<label class="option"><input type="radio" name="q10" value="C"> C. gravitasi</label>
+<label class="option"><input type="radio" name="q10" value="D"> D. pegas</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+11. Ketika menghapus tulisan dengan penghapus, terjadi gesekan antara penghapus dan papan tulis. Gaya yang terjadi adalah ....
+</div>
+<label class="option"><input type="radio" name="q11" value="A"> A. gaya magnet</label>
+<label class="option"><input type="radio" name="q11" value="B"> B. gaya gravitasi</label>
+<label class="option"><input type="radio" name="q11" value="C"> C. gaya gesek</label>
+<label class="option"><input type="radio" name="q11" value="D"> D. gaya pegas</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+12. Siska mendekatkan magnet ke beberapa benda. Benda yang paling mungkin tertarik oleh magnet adalah ....
+</div>
+<label class="option"><input type="radio" name="q12" value="A"> A. pensil kayu</label>
+<label class="option"><input type="radio" name="q12" value="B"> B. penghapus karet</label>
+<label class="option"><input type="radio" name="q12" value="C"> C. klip kertas besi</label>
+<label class="option"><input type="radio" name="q12" value="D"> D. gelas plastik</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+13. Buah mangga yang sudah matang jatuh dari pohonnya ke tanah. Peristiwa tersebut terjadi karena adanya ....
+</div>
+<label class="option"><input type="radio" name="q13" value="A"> A. gaya otot</label>
+<label class="option"><input type="radio" name="q13" value="B"> B. gaya magnet</label>
+<label class="option"><input type="radio" name="q13" value="C"> C. gaya gravitasi</label>
+<label class="option"><input type="radio" name="q13" value="D"> D. gaya pegas</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+14. Ketika bermain ketapel, karet ditarik lalu dilepaskan sehingga batu bergerak ke depan. Gaya yang membantu batu bergerak berasal dari ....
+</div>
+<label class="option"><input type="radio" name="q14" value="A"> A. gaya pegas</label>
+<label class="option"><input type="radio" name="q14" value="B"> B. gaya magnet</label>
+<label class="option"><input type="radio" name="q14" value="C"> C. gaya gravitasi</label>
+<label class="option"><input type="radio" name="q14" value="D"> D. gaya gesek</label>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+15. Andi menggelindingkan bola dengan pelan. Budi menggelindingkan bola yang sama dengan lebih kuat. Bola milik Budi bergerak lebih jauh. Hal ini menunjukkan bahwa gaya dapat ....
+</div>
+<label class="option"><input type="radio" name="q15" value="A"> A. mengubah warna benda</label>
+<label class="option"><input type="radio" name="q15" value="B"> B. mengubah gerak benda</label>
+<label class="option"><input type="radio" name="q15" value="C"> C. mengubah bahan benda</label>
+<label class="option"><input type="radio" name="q15" value="D"> D. menghilangkan massa benda</label>
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ISIAN -->
+<!-- ===================================================== -->
+
+<h2>Isian Singkat</h2>
+
+
+<div class="question">
+<div class="question-title">
+16. Energi yang dimiliki oleh benda yang dapat menghasilkan cahaya disebut energi ....
+</div>
+<input type="text" name="q16">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+17. Matahari merupakan sumber energi .... yang sangat penting bagi kehidupan di Bumi.
+</div>
+<input type="text" name="q17">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+18. Pada lampu, energi listrik berubah menjadi energi ....
+</div>
+<input type="text" name="q18">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+19. Tumbuhan menggunakan cahaya matahari untuk membantu proses ....
+</div>
+<input type="text" name="q19">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+20. Salah satu hasil fotosintesis yang dibutuhkan manusia untuk bernapas adalah ....
+</div>
+<input type="text" name="q20">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+21. Gaya berupa tarikan atau dorongan dapat menyebabkan benda .... atau berubah geraknya.
+</div>
+<input type="text" name="q21">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+22. Saat mengangkat tas sekolah menggunakan tangan, kita menggunakan gaya ....
+</div>
+<input type="text" name="q22">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+23. Gaya yang menyebabkan buah jatuh dari pohon adalah gaya ....
+</div>
+<input type="text" name="q23">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+24. Ban sepeda dapat berhenti ketika direm karena adanya gaya ....
+</div>
+<input type="text" name="q24">
+</div>
+
+
+<div class="question">
+<div class="question-title">
+25. Gaya dapat membuat benda yang diam menjadi ....
+</div>
+<input type="text" name="q25">
+</div>
+
+
+<!-- ===================================================== -->
+<!-- URAIAN -->
+<!-- ===================================================== -->
+
+<h2>Uraian</h2>
+
+
+<div class="question">
+<div class="question-title">
+26. Rani menggunakan setrika untuk merapikan bajunya. Jelaskan perubahan energi yang terjadi pada setrika!
+</div>
+<textarea name="q26" rows="5"></textarea>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+27. Mengapa tumbuhan yang diletakkan di tempat yang mendapat cahaya matahari dapat tumbuh dengan baik? Jelaskan hubungannya dengan fotosintesis!
+</div>
+<textarea name="q27" rows="5"></textarea>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+28. Sebutkan dua contoh kegiatan sehari-hari yang menggunakan gaya dorongan dan jelaskan benda apa yang bergerak!
+</div>
+<textarea name="q28" rows="5"></textarea>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+29. Ketika bermain bola, Dika menendang bola dengan kuat sehingga bola bergerak lebih cepat. Apa pengaruh gaya terhadap bola pada peristiwa tersebut? Jelaskan!
+</div>
+<textarea name="q29" rows="5"></textarea>
+</div>
+
+
+<div class="question">
+<div class="question-title">
+30. Sebuah mobil-mobilan didorong pelan, kemudian didorong lebih kuat. Mobil-mobilan bergerak lebih cepat saat didorong lebih kuat. Apa kesimpulan yang dapat kamu ambil tentang hubungan gaya dengan gerak benda?
+</div>
+<textarea name="q30" rows="6"></textarea>
+</div>
+
+
+<div style="text-align:center;margin-top:30px;">
+<button type="button" class="btn btn-success" onclick="kumpulkanUjian()">
+KUMPULKAN JAWABAN
+</button>
+</div>
+
+</form>
+</div>
+</div>
+
+
+<!-- ===================================================== -->
+<!-- HASIL -->
+<!-- ===================================================== -->
+
+<div id="resultPage" class="page">
+
+<div class="card result-box">
+
+<h2>Ujian Selesai 🎉</h2>
+
+<p id="resultName"></p>
+
+<div class="score" id="finalScore">
+0
+</div>
+
+<p>Nilai Akhir</p>
+
+<div class="result-detail">
+
+<p>
+<strong>Benar Pilihan Ganda:</strong>
+<span id="pgBenar"></span> / 15
+</p>
+
+<p>
+<strong>Benar Isian:</strong>
+<span id="isianBenar"></span> / 10
+</p>
+
+<p>
+<strong>Poin Uraian:</strong>
+<span id="uraianPoin"></span> / 30
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Review Jawaban</h2>
+
+<div id="review"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+FORM SPREE
+========================================================= */
+
+const FORMSPREE_ENDPOINT =
+"https://formspree.io/f/mzezzovw";
+
+
+/* =========================================================
+DATA SISWA
+========================================================= */
+
+const siswa = {
+
+"1":"Achmad Naufal Putra Yulianto",
+
+"2":"Aldo Syarul Ramdhan",
+
+"3":"Danish Raffa Faizan",
+
+"4":"Fabian Arrafif",
+
+"5":"Meli Anggraini",
+
+"6":"Muhammad Daffa Al Baihaqi",
+
+"7":"Nadhira Azkadina Putri",
+
+"8":"Nur Azizah",
+
+"9":"Raffasya Ali Alfarizqi",
+
+"10":"Assyfa Putri Zahrany"
+
+};
+
+
+/* =========================================================
+KUNCI PG
+========================================================= */
+
+const kunciPG = {
+
+q1:"A",
+q2:"D",
+q3:"A",
+q4:"A",
+q5:"B",
+q6:"C",
+q7:"A",
+q8:"B",
+q9:"A",
+q10:"B",
+q11:"C",
+q12:"C",
+q13:"C",
+q14:"A",
+q15:"B"
+
+};
+
+
+/* =========================================================
+KUNCI ISIAN
+========================================================= */
+
+const kunciIsian = {
+
+q16:[
+"cahaya",
+"energi cahaya"
+],
+
+q17:[
+"panas",
+"cahaya",
+"surya",
+"matahari"
+],
+
+q18:[
+"cahaya",
+"energi cahaya"
+],
+
+q19:[
+"fotosintesis"
+],
+
+q20:[
+"oksigen",
+"o2"
+],
+
+q21:[
+"bergerak",
+"berpindah"
+],
+
+q22:[
+"otot",
+"gaya otot"
+],
+
+q23:[
+"gravitasi",
+"gaya gravitasi"
+],
+
+q24:[
+"gesek",
+"gaya gesek"
+],
+
+q25:[
+"bergerak",
+"bergerak atau berpindah"
+]
+
+};
+
+
+/* =========================================================
+RUBRIK URAIAN
+========================================================= */
+
+const rubrikUraian = {
+
+q26:[
+[
+"energi listrik",
+"listrik"
+],
+[
+"energi panas",
+"panas"
+],
+[
+"listrik menjadi panas",
+"listrik berubah menjadi panas"
+]
+],
+
+q27:[
+[
+"cahaya matahari",
+"sinar matahari",
+"matahari"
+],
+[
+"fotosintesis"
+],
+[
+"membuat makanan",
+"membuat makanannya sendiri"
+],
+[
+"tumbuh",
+"pertumbuhan"
+]
+],
+
+q28:[
+[
+"mendorong meja",
+"mendorong pintu",
+"mendorong kursi",
+"mendorong gerobak",
+"mendorong bola"
+],
+[
+"meja",
+"pintu",
+"kursi",
+"gerobak",
+"bola"
+],
+[
+"mendorong"
+]
+],
+
+q29:[
+[
+"gaya",
+"tendangan"
+],
+[
+"bola bergerak",
+"bola bergerak lebih cepat",
+"bergerak lebih cepat"
+],
+[
+"mengubah gerak",
+"mempercepat gerak",
+"mengubah kecepatan"
+]
+],
+
+q30:[
+[
+"semakin besar gaya",
+"gaya lebih besar",
+"lebih kuat"
+],
+[
+"semakin cepat",
+"bergerak lebih cepat"
+],
+[
+"gaya memengaruhi gerak",
+"gaya mempengaruhi gerak"
+],
+[
+"gerak benda"
+]
+]
+
+};
+
+
+/* =========================================================
+PILIH ABSEN
+========================================================= */
+
+function pilihAbsen(){
+
+const absen =
+document.getElementById("absen").value;
+
+const nama =
+document.getElementById("nama");
+
+const welcome =
+document.getElementById("welcomeName");
+
+if(absen && siswa[absen]){
+
+nama.value =
+siswa[absen];
+
+welcome.textContent =
+siswa[absen];
+
+}else{
+
+nama.value="";
+
+welcome.textContent =
+"Peserta Didik!";
+
+}
+
+}
+
+
+/* =========================================================
+MULAI UJIAN
+========================================================= */
+
+function mulaiUjian(){
+
+const absen =
+document.getElementById("absen").value;
+
+const nama =
+document.getElementById("nama").value;
+
+if(!absen){
+
+alert(
+"Silakan pilih No. Absen terlebih dahulu."
+);
+
+return;
+
+}
+
+if(!nama){
+
+alert("Nama belum muncul.");
+
+return;
+
+}
+
+document
+.getElementById("startPage")
+.classList.remove("active");
+
+document
+.getElementById("examPage")
+.classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+updateProgress();
+
+}
+
+
+/* =========================================================
+PROGRESS
+========================================================= */
+
+function updateProgress(){
+
+const form =
+document.getElementById("examForm");
+
+let answered=0;
+
+
+for(let i=1;i<=15;i++){
+
+const checked =
+form.querySelector(
+`input[name="q${i}"]:checked`
+);
+
+if(checked) answered++;
+
+}
+
+
+for(let i=16;i<=30;i++){
+
+const input =
+form.querySelector(
+`[name="q${i}"]`
+);
+
+if(input &&
+input.value.trim()!==""){
+
+answered++;
+
+}
+
+}
+
+
+const persen =
+(answered/30)*100;
+
+document
+.getElementById("progressText")
+.textContent =
+`${answered} / 30 soal terjawab`;
+
+document
+.getElementById("progressFill")
+.style.width =
+persen+"%";
+
+}
+
+
+/* =========================================================
+NORMALISASI
+========================================================= */
+
+function normalisasi(teks){
+
+return teks
+.toLowerCase()
+.trim()
+.replace(/\s+/g," ");
+
+}
+
+
+/* =========================================================
+CEK ISIAN
+========================================================= */
+
+function cekIsian(jawaban,kunci){
+
+const j =
+normalisasi(jawaban);
+
+return kunci.some(
+item =>
+j === normalisasi(item)
+);
+
+}
+
+
+/* =========================================================
+CEK URAIAN
+========================================================= */
+
+function cekUraian(jawaban,rubrik){
+
+const j =
+normalisasi(jawaban);
+
+let poin=0;
+
+rubrik.forEach(kelompok=>{
+
+const ditemukan =
+kelompok.some(
+kata =>
+j.includes(
+normalisasi(kata)
+)
+);
+
+if(ditemukan){
+
+poin++;
+
+}
+
+});
+
+return poin;
+
+}
+
+
+/* =========================================================
+KUMPULKAN
+========================================================= */
+
+async function kumpulkanUjian(){
+
+const konfirmasi =
+confirm(
+"Apakah kamu yakin ingin mengumpulkan jawaban? Setelah dikumpulkan, jawaban tidak dapat diubah."
+);
+
+if(!konfirmasi) return;
+
+
+const form =
+document.getElementById("examForm");
+
+const absen =
+document.getElementById("absen").value;
+
+const nama =
+document.getElementById("nama").value;
+
+
+/* PG */
+
+let pgBenar=0;
+
+for(let i=1;i<=15;i++){
+
+const jawaban =
+form.querySelector(
+`input[name="q${i}"]:checked`
+);
+
+if(
+jawaban &&
+jawaban.value ===
+kunciPG[`q${i}`]
+){
+
+pgBenar++;
+
+}
+
+}
+
+const nilaiPG =
+(pgBenar/15)*40;
+
+
+/* ISIAN */
+
+let isianBenar=0;
+
+for(let i=16;i<=25;i++){
+
+const input =
+form.querySelector(
+`[name="q${i}"]`
+);
+
+if(
+input &&
+cekIsian(
+input.value,
+kunciIsian[`q${i}`]
+)
+){
+
+isianBenar++;
+
+}
+
+}
+
+const nilaiIsian =
+(isianBenar/10)*30;
+
+
+/* URAIAN */
+
+let totalUraianPoin=0;
+
+let totalMaksimalUraian=0;
+
+for(let i=26;i<=30;i++){
+
+const input =
+form.querySelector(
+`[name="q${i}"]`
+);
+
+const rubrik =
+rubrikUraian[`q${i}`];
+
+totalUraianPoin +=
+cekUraian(
+input.value,
+rubrik
+);
+
+totalMaksimalUraian +=
+rubrik.length;
+
+}
+
+
+const nilaiUraian =
+(totalUraianPoin/
+totalMaksimalUraian)*30;
+
+
+/* NILAI AKHIR */
+
+const nilaiAkhir =
+Math.round(
+nilaiPG+
+nilaiIsian+
+nilaiUraian
+);
+
+
+/* TAMPILKAN */
+
+document
+.getElementById("examPage")
+.classList.remove("active");
+
+document
+.getElementById("resultPage")
+.classList.add("active");
+
+document
+.getElementById("resultName")
+.textContent =
+`${nama} • No. Absen ${absen}`;
+
+document
+.getElementById("finalScore")
+.textContent =
+nilaiAkhir;
+
+document
+.getElementById("pgBenar")
+.textContent =
+pgBenar;
+
+document
+.getElementById("isianBenar")
+.textContent =
+isianBenar;
+
+document
+.getElementById("uraianPoin")
+.textContent =
+`${totalUraianPoin}/${totalMaksimalUraian}`;
+
+
+buatReview();
+
+
+/* KIRIM FORMSPREE */
+
+const dataJawaban={};
+
+for(let i=1;i<=30;i++){
+
+if(i<=15){
+
+const checked =
+form.querySelector(
+`input[name="q${i}"]:checked`
+);
+
+dataJawaban[`soal_${i}`] =
+checked
+?checked.value
+:"";
+
+}else{
+
+const input =
+form.querySelector(
+`[name="q${i}"]`
+);
+
+dataJawaban[`soal_${i}`] =
+input
+?input.value
+:"";
+
+}
+
+}
+
+
+try{
+
+if(
+FORMSPREE_ENDPOINT &&
+!FORMSPREE_ENDPOINT.includes(
+"GANTI_DENGAN"
+)
+){
+
+await fetch(
+FORMSPREE_ENDPOINT,
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json",
+
+"Accept":
+"application/json"
+},
+
+body:JSON.stringify({
+
+nama_siswa:nama,
+
+no_absen:absen,
+
+kelas_fase:"IV / B",
+
+mata_pelajaran:"IPAS",
+
+nilai:nilaiAkhir,
+
+nilai_pg:
+Math.round(nilaiPG),
+
+nilai_isian:
+Math.round(nilaiIsian),
+
+nilai_uraian:
+Math.round(nilaiUraian),
+
+pilihan_ganda_benar:
+`${pgBenar}/15`,
+
+isian_benar:
+`${isianBenar}/10`,
+
+uraian_poin:
+`${totalUraianPoin}/${totalMaksimalUraian}`,
+
+jawaban:
+JSON.stringify(dataJawaban)
+
+})
+
+}
+);
+
+}
+
+}catch(error){
+
+console.log(
+"Pengiriman Formspree gagal:",
+error
+);
+
+}
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================================
+REVIEW
+========================================================= */
+
+function buatReview(){
+
+const form =
+document.getElementById("examForm");
+
+const review =
+document.getElementById("review");
+
+review.innerHTML="";
+
+
+/* REVIEW PG */
+
+for(let i=1;i<=15;i++){
+
+const checked =
+form.querySelector(
+`input[name="q${i}"]:checked`
+);
+
+const jawaban =
+checked
+?checked.value
+:"Tidak dijawab";
+
+const benar =
+jawaban ===
+kunciPG[`q${i}`];
+
+const div =
+document.createElement("div");
+
+div.className =
+"review-item";
+
+div.innerHTML=`
+
+<strong>Soal ${i}</strong>
+
+<p>
+Jawaban kamu:
+<strong>${jawaban}</strong>
+</p>
+
+<p>
+Kunci:
+<strong>${kunciPG[`q${i}`]}</strong>
+</p>
+
+<p class="${benar?"correct":"wrong"}">
+${benar?"✓ Benar":"✗ Salah"}
+</p>
+
+`;
+
+review.appendChild(div);
+
+}
+
+
+/* REVIEW ISIAN + URAIAN */
+
+for(let i=16;i<=30;i++){
+
+const input =
+form.querySelector(
+`[name="q${i}"]`
+);
+
+const jawaban =
+input
+?input.value
+:"";
+
+const div =
+document.createElement("div");
+
+div.className =
+"review-item";
+
+div.innerHTML=`
+
+<strong>Soal ${i}</strong>
+
+<p>
+Jawaban kamu:
+<strong>
+${
+jawaban.trim()
+?jawaban
+:"Tidak dijawab"
+}
+</strong>
+</p>
+
+`;
+
+review.appendChild(div);
+
+}
+
+}
+
+
+/* =========================================================
+UPDATE PROGRESS
+========================================================= */
+
+document.addEventListener(
+"change",
+updateProgress
+);
+
+document.addEventListener(
+"input",
+updateProgress
+);
+
+</script>
+
+</body>
+</html>
+```
